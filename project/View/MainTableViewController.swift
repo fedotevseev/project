@@ -11,38 +11,42 @@ import RealmSwift
 
 class MainTableViewController: UITableViewController {
     var products: Results<Product>!
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        startPresentation()
+        
         products = realm.objects(Product.self)
         
-        tableView.tableFooterView?.backgroundColor = .red
         tableView.tableFooterView = UIView()
         title = "Shop list"
+        
+        
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return products.isEmpty ? 0 : products.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell",
                                                  for: indexPath) as! ProductCell
         
         let product = products[indexPath.row]
-
+        
         cell.productLabel.text = product.name
         cell.productCount.text = product.count
-
+        
         return cell
     }
-
+    
     // MARK: - Navigation
-
+    
     // MARK: Seque Редактирование
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = tableView.indexPathForSelectedRow {
@@ -60,17 +64,39 @@ class MainTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-//    MARK: Удаление строки
+    //    MARK: Удаление строки
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCell.EditingStyle,
                             forRowAt indexPath: IndexPath) {
-
+        
         let product = products[indexPath.row]
-
+        
         if editingStyle == .delete {
             StorageManager.deleteObject(product)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
-
+    
+    // network
+    
+    @IBAction func responseJSON(_ sender: Any) {
+        
+    }
+    
+    
+    // Временно здесь
+    
+    
+    func startPresentation() {
+        let userDefaults = UserDefaults.standard
+        let presentationWasViewed = userDefaults.bool(forKey: "presentatioinWasViewed")
+        if presentationWasViewed == false {
+            if let pageViewController = storyboard?.instantiateViewController(identifier: "PageViewController") as? PageViewController {
+                present(pageViewController, animated: true, completion: nil)
+            }
+        }
+        
+        
+    }
+    
 }

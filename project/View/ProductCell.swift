@@ -11,6 +11,4 @@ import UIKit
 class ProductCell: UITableViewCell {
     @IBOutlet weak var productLabel: UILabel!
     @IBOutlet weak var productCount: UILabel!
-    
-
 }
