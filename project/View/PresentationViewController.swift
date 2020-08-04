@@ -12,6 +12,13 @@ import CoreLocation
 class PresentationViewController: UIViewController {
     
     var networkWeatherManager = NetworkWeatherManager()
+    lazy var locationManager: CLLocationManager = {
+        let locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        return locationManager
+    }()
     
     @IBOutlet var helloLabel: UILabel!
     @IBOutlet var weatherIcon: UIImageView!
@@ -22,7 +29,9 @@ class PresentationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkWeatherManager.fetchCurrentWeather(forCity: "Moscow")
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.requestLocation()
+        }
 
         networkWeatherManager.onCompletion = { [weak self] currentWeather in
             guard let self = self else { return }
@@ -46,5 +55,20 @@ class PresentationViewController: UIViewController {
     }
 }
 
+//MARK: - CLLocationManagerDelegate
+
+extension PresentationViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        
+        networkWeatherManager.fetchCurrentWeather(forRequestType: .coordinate(latitude: latitude, longitude: longitude))
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
+    }
+}
 
 

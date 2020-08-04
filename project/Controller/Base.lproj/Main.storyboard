@@ -130,7 +130,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stepper opaque="NO" contentMode="redraw" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" wraps="YES" value="1" minimumValue="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="AZG-3r-T2b">
+                                                        <stepper opaque="NO" contentMode="redraw" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" wraps="YES" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="AZG-3r-T2b">
                                                             <rect key="frame" x="280" y="6" width="94" height="32"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="32" id="5Dh-WK-f44"/>
@@ -230,7 +230,9 @@
         <!--Page View Controller-->
         <scene sceneID="4JG-uP-bKh">
             <objects>
-                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="e9V-Xk-EbY" customClass="PageViewController" customModule="project" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="e9V-Xk-EbY" customClass="PageViewController" customModule="project" customModuleProvider="target" sceneMemberID="viewController">
+                    <size key="freeformSize" width="414" height="400"/>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7d3-Xp-Uhp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="812" y="714"/>
@@ -238,13 +240,13 @@
         <!--Presentation View Controller-->
         <scene sceneID="ipC-Or-5L8">
             <objects>
-                <viewController storyboardIdentifier="PresentationViewController" modalTransitionStyle="partialCurl" id="pfm-Ib-ADJ" customClass="PresentationViewController" customModule="project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PresentationViewController" id="pfm-Ib-ADJ" customClass="PresentationViewController" customModule="project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VWd-UF-HIl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="T18-M3-5q3">
-                                <rect key="frame" x="128" y="342.5" width="158" height="211.5"/>
+                                <rect key="frame" x="128" y="94.5" width="158" height="211.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добрый день" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvo-4J-Jgr">
                                         <rect key="frame" x="26" y="0.0" width="106" height="20.5"/>
@@ -294,13 +296,15 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="T18-M3-5q3" firstAttribute="centerX" secondItem="VWd-UF-HIl" secondAttribute="centerX" id="hwc-H2-Hk2"/>
                             <constraint firstItem="T18-M3-5q3" firstAttribute="centerY" secondItem="VWd-UF-HIl" secondAttribute="centerY" id="nMD-KB-NN1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JMw-iJ-03Y"/>
                     </view>
+                    <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="400"/>
                     <connections>
                         <outlet property="helloLabel" destination="mvo-4J-Jgr" id="xzm-u9-tBw"/>
                         <outlet property="locationLabel" destination="ucz-pp-pKO" id="J0T-bh-Umt"/>

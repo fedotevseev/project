@@ -73,8 +73,6 @@ class NewProductTVC: UITableViewController {
         let productCounts = productCount
         productCounts?.text = String(stepperMinValue)
         
-        stepper.value = 1
-        stepper.minimumValue = 1
         stepper.maximumValue = 10
         
     }
