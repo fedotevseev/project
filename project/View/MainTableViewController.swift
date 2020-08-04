@@ -39,7 +39,7 @@ class MainTableViewController: UITableViewController {
         
         let product = products[indexPath.row]
         
-        cell.productLabel.text = product.name
+        cell.productLabel.text = product.name.trimmingCharacters(in: .whitespaces)
         cell.productCount.text = product.count
         
         return cell

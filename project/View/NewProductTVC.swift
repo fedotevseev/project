@@ -10,6 +10,7 @@ import UIKit
 
 class NewProductTVC: UITableViewController {
     
+    let restrictedCharacters: [Character] = [" ", "#", "?"]
     var currentProduct: Product?
     
     @IBOutlet var saveButton: UIBarButtonItem!
@@ -19,6 +20,9 @@ class NewProductTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.productName.delegate = self
+        self.productCount.delegate = self
         
         tableView.tableFooterView = UIView()
         productName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
@@ -48,11 +52,11 @@ class NewProductTVC: UITableViewController {
     private func editScreen() {
         
         if currentProduct != nil {
-        setupNavigationBar()
-        title = currentProduct?.name
-        
-        productName.text = currentProduct?.name
-        productCount.text = currentProduct?.count
+            setupNavigationBar()
+            title = currentProduct?.name
+            
+            productName.text = currentProduct?.name
+            productCount.text = currentProduct?.count
         }
     }
     
@@ -104,4 +108,11 @@ extension NewProductTVC: UITextFieldDelegate {
             saveButton.isEnabled = false
         }
     }
+
+}
+    
+    extension NewProductTVC: UITextFieldDelegate {
+        func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+           return !(Set(string).intersection(Set(restrictedCharacters)).count > 0)
+        }
 }

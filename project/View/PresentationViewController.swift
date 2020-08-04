@@ -28,22 +28,32 @@ class PresentationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if CLLocationManager.locationServicesEnabled() {
             locationManager.requestLocation()
         }
-
+        
+        //Тестовый город
+        networkWeatherManager.fetchCurrentWeather(forRequestType: .cityName(city: "Yakutsk"))
+        
         networkWeatherManager.onCompletion = { [weak self] currentWeather in
             guard let self = self else { return }
             self.updateInterfaceWith(weather: currentWeather)
         }
         
         view.backgroundColor = .white
-        
-        
-        
+        print("viewDidLoad")
     }
- 
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(true, forKey: "presentatioinWasViewed")
+        self.dismiss(animated: false, completion: nil)
+        
+        print("viewWillDidappear closed")
+    }
+    
     
     func updateInterfaceWith(weather: CurrentWeather) {
         DispatchQueue.main.async {
