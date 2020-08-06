@@ -90,10 +90,6 @@ class NewProductTVC: UITableViewController {
         dismiss(animated: true)
     }
     
-}
-
-extension NewProductTVC: UITextFieldDelegate {
-    
     // Скрываем клавиатуру по нажатию на Done
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -110,7 +106,7 @@ extension NewProductTVC: UITextFieldDelegate {
     }
 
 }
-    
+
     extension NewProductTVC: UITextFieldDelegate {
         func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
            return !(Set(string).intersection(Set(restrictedCharacters)).count > 0)

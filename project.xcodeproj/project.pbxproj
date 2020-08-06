@@ -22,6 +22,7 @@
 		B290091C24CDEBA800B1700C /* NewProductTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B290091B24CDEBA800B1700C /* NewProductTVC.swift */; };
 		B290091E24CDEFE600B1700C /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B290091D24CDEFE600B1700C /* ProductModel.swift */; };
 		B290092024CDF17500B1700C /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B290091F24CDF17500B1700C /* StorageManager.swift */; };
+		B2B12E6624DBE1F600E18105 /* TimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B12E6524DBE1F600E18105 /* TimeModel.swift */; };
 		B2D4476824CDDDDE009B2AF2 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D4476724CDDDDE009B2AF2 /* ProductCell.swift */; };
 		B2D4476C24CDE2DA009B2AF2 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D4476B24CDE2DA009B2AF2 /* MainTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,7 @@
 		B290091B24CDEBA800B1700C /* NewProductTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProductTVC.swift; sourceTree = "<group>"; };
 		B290091D24CDEFE600B1700C /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		B290091F24CDF17500B1700C /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		B2B12E6524DBE1F600E18105 /* TimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeModel.swift; sourceTree = "<group>"; };
 		B2D4476724CDDDDE009B2AF2 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		B2D4476B24CDE2DA009B2AF2 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		B6B5EF9BFC49FCE96B60ACD7 /* Pods-project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project.release.xcconfig"; path = "Target Support Files/Pods-project/Pods-project.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				B290091D24CDEFE600B1700C /* ProductModel.swift */,
+				B2B12E6524DBE1F600E18105 /* TimeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				B290091E24CDEFE600B1700C /* ProductModel.swift in Sources */,
 				B2D4476824CDDDDE009B2AF2 /* ProductCell.swift in Sources */,
 				B237A97124D4F49000639745 /* CurrentWeatherData.swift in Sources */,
+				B2B12E6624DBE1F600E18105 /* TimeModel.swift in Sources */,
 				B290092024CDF17500B1700C /* StorageManager.swift in Sources */,
 				B290091C24CDEBA800B1700C /* NewProductTVC.swift in Sources */,
 				B237978424CB94AA000E03C7 /* AppDelegate.swift in Sources */,

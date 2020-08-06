@@ -12,6 +12,8 @@ import CoreLocation
 class PresentationViewController: UIViewController {
     
     var networkWeatherManager = NetworkWeatherManager()
+    var currentTime = CurrentTime()
+    
     lazy var locationManager: CLLocationManager = {
         let locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -20,17 +22,23 @@ class PresentationViewController: UIViewController {
         return locationManager
     }()
     
+    let userDefaults = UserDefaults.standard
+    let userDefaultsKey = "presentatioinWasViewed"
+    
     @IBOutlet var helloLabel: UILabel!
     @IBOutlet var weatherIcon: UIImageView!
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var tempLabel: UILabel!
     @IBOutlet var viewBackground: UIView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         if CLLocationManager.locationServicesEnabled() {
             locationManager.requestLocation()
         }
+        updateHelloLabel(currentHours: currentTime)
         
         //Тестовый город
         networkWeatherManager.fetchCurrentWeather(forRequestType: .cityName(city: "Yakutsk"))
@@ -39,16 +47,15 @@ class PresentationViewController: UIViewController {
             guard let self = self else { return }
             self.updateInterfaceWith(weather: currentWeather)
         }
-        
         view.backgroundColor = .white
-        print("viewDidLoad")
+        print("viewDidAppear Load")
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        let userDefaults = UserDefaults.standard
-        userDefaults.set(true, forKey: "presentatioinWasViewed")
+        userDefaults.set(true, forKey: userDefaultsKey)
         self.dismiss(animated: false, completion: nil)
         
         print("viewWillDidappear closed")
@@ -60,6 +67,26 @@ class PresentationViewController: UIViewController {
             self.locationLabel.text = weather.cityName
             self.tempLabel.text = weather.tempString
             self.weatherIcon.image = UIImage(systemName: weather.systemIconNameString)
+        }
+        
+    }
+    
+    func updateHelloLabel(currentHours: CurrentTime) {
+        
+        let hourString = currentHours.hour
+        
+        switch hourString {
+        case 0..<10:
+            self.helloLabel.text = "Доброе утро!"
+        case 10...12:
+            self.helloLabel.text = "Добрый день!"
+        case 12..<18:
+            self.helloLabel.text = "Добрый вечер!"
+            self.view.backgroundColor = .red
+        case 18...24:
+            self.helloLabel.text = "Доброй ночи!"
+        default:
+            break
         }
         
     }

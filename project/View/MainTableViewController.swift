@@ -77,11 +77,6 @@ class MainTableViewController: UITableViewController {
         }
     }
     
-    // network
-    
-    @IBAction func responseJSON(_ sender: Any) {
-        
-    }
     
     
     // Временно здесь
