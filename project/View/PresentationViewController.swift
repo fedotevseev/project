@@ -56,8 +56,7 @@ class PresentationViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         userDefaults.set(true, forKey: userDefaultsKey)
-        self.dismiss(animated: false, completion: nil)
-        
+  
         print("viewWillDidappear closed")
     }
     
@@ -80,10 +79,10 @@ class PresentationViewController: UIViewController {
             self.helloLabel.text = "Доброе утро!"
         case 10...12:
             self.helloLabel.text = "Добрый день!"
-        case 12..<18:
+        case 12..<21:
             self.helloLabel.text = "Добрый вечер!"
             self.view.backgroundColor = .red
-        case 18...24:
+        case 21...24:
             self.helloLabel.text = "Доброй ночи!"
         default:
             break
@@ -106,6 +105,8 @@ extension PresentationViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error.localizedDescription)
     }
+    
+
 }
 
 

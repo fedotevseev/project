@@ -12,11 +12,15 @@ import RealmSwift
 class MainTableViewController: UITableViewController {
     var products: Results<Product>!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         startPresentation()
-        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+ 
         products = realm.objects(Product.self)
         
         tableView.tableFooterView = UIView()
@@ -76,22 +80,19 @@ class MainTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
+     
     
-    
-    
-    // Временно здесь
-    
-    
-    func startPresentation() {
-        let userDefaults = UserDefaults.standard
-        let presentationWasViewed = userDefaults.bool(forKey: "presentatioinWasViewed")
-        if presentationWasViewed == false {
-            if let pageViewController = storyboard?.instantiateViewController(identifier: "PageViewController") as? PageViewController {
-                present(pageViewController, animated: true, completion: nil)
+        func startPresentation() {
+            let userDefaults = UserDefaults.standard
+            let presentationWasViewed = userDefaults.bool(forKey: "presentatioinWasViewed")
+            if presentationWasViewed == false {
+                if let pageViewController = storyboard?.instantiateViewController(identifier: "PresentationViewController") as? PresentationViewController {
+                    present(pageViewController, animated: true, completion: nil)
+                }
             }
+            
+            
         }
         
-        
-    }
     
 }
