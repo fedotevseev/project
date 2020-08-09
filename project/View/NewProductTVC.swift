@@ -21,12 +21,12 @@ class NewProductTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        saveButton.isEnabled = false        
         self.productName.delegate = self
         self.productCount.delegate = self
         
         tableView.tableFooterView = UIView()
         productName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        saveButton.isEnabled = false
         
         stepperConfig()
         editScreen()

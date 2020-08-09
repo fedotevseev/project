@@ -290,6 +290,7 @@
                         <viewLayoutGuide key="safeArea" id="JMw-iJ-03Y"/>
                     </view>
                     <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="896"/>
                     <connections>
                         <outlet property="helloLabel" destination="mvo-4J-Jgr" id="xzm-u9-tBw"/>
                         <outlet property="locationLabel" destination="ucz-pp-pKO" id="J0T-bh-Umt"/>
