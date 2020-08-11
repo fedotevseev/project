@@ -11,12 +11,12 @@
         <scene sceneID="seY-tY-nfl">
             <objects>
                 <tableViewController id="ngz-3v-Bz1" customClass="MainTableViewController" customModule="project" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3eC-qE-uto">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" springLoaded="YES" id="3eC-qE-uto">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" id="J40-2b-cGy" customClass="ProductCell" customModule="project" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" editingAccessoryType="disclosureIndicator" id="J40-2b-cGy" customClass="ProductCell" customModule="project" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="41"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J40-2b-cGy" id="Yxi-xF-NG5">
@@ -61,7 +61,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="ZEN-7j-ZWV">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="eCd-9j-hjB"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="y9E-wG-SC3">
                             <connections>
                                 <segue destination="Uug-vf-PGe" kind="show" id="xhm-FU-f4s"/>
@@ -154,7 +153,7 @@
                             <outlet property="delegate" destination="tkS-c2-rGS" id="Luf-tH-YU5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="aLP-fF-hsc">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="aLP-fF-hsc">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pYH-Vt-nlq">
                             <connections>
                                 <action selector="cancelAction:" destination="tkS-c2-rGS" id="Ydt-g5-WtG"/>
@@ -184,8 +183,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HT1-6u-lAf" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BM3-HR-7st">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="BM3-HR-7st">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -202,7 +201,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="Uug-vf-PGe" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="e4M-Zl-cJO">
+                    <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="always" id="e4M-Zl-cJO">
                         <barButtonItem key="backBarButtonItem" id="9fa-ba-9Mn"/>
                     </navigationItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2I2-5W-KNN">

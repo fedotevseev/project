@@ -24,6 +24,7 @@ class MainTableViewController: UITableViewController {
         products = realm.objects(Product.self)
         
         tableView.tableFooterView = UIView()
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
         title = "Shop list"
         
         
@@ -69,18 +70,21 @@ class MainTableViewController: UITableViewController {
     }
     
     //    MARK: Удаление строки
-    override func tableView(_ tableView: UITableView,
-                            commit editingStyle: UITableViewCell.EditingStyle,
-                            forRowAt indexPath: IndexPath) {
-        
-        let product = products[indexPath.row]
-        
-        if editingStyle == .delete {
-            StorageManager.deleteObject(product)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-        }
+  override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = deleteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [delete])
     }
      
+    func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
+        let delete = UIContextualAction(style: .normal, title: "Delete") { (action, _, _) in
+            let product = self.products[indexPath.row]
+            
+            StorageManager.deleteObject(product)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        delete.backgroundColor = .systemRed
+        return delete
+    }
     
         func startPresentation() {
             let userDefaults = UserDefaults.standard
