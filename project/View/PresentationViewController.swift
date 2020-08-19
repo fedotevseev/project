@@ -40,9 +40,6 @@ class PresentationViewController: UIViewController {
         }
         updateHelloLabel(currentHours: currentTime)
         
-        //Тестовый город
-        networkWeatherManager.fetchCurrentWeather(forRequestType: .cityName(city: "Yakutsk"))
-        
         networkWeatherManager.onCompletion = { [weak self] currentWeather in
             guard let self = self else { return }
             self.updateInterfaceWith(weather: currentWeather)

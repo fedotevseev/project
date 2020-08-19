@@ -6,8 +6,6 @@
 //  Copyright © 2020 Федот Евсеев. All rights reserved.
 //
 
-import Foundation
-
 struct CurrentWeatherData: Codable {
     let name: String
     let main: Main
@@ -15,7 +13,7 @@ struct CurrentWeatherData: Codable {
 }
 
 struct Main: Codable {
-    let temp: Double
+    let temp: Int
 }
 
 struct Weather: Codable {
